@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ServicesService } from './services.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'video2-app';
+  loadedMedia:any[] =[];
+  constructor(private services:ServicesService){}
+
+  
 }

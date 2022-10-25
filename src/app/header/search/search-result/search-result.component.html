@@ -1,0 +1,23 @@
+<div class="container">
+    <div style="
+    float:left; 
+    margin:10px; 
+    max-height:400px; 
+    height:400px; 
+    "
+     *ngFor="let res of result" >
+      <div class="card" style="width: 18rem; background-color:darkcyan" (click)="loadCurrentMovie(res)">
+        <img
+          [src]="'https://image.tmdb.org/t/p/w200/' + res.backdrop_path"
+          class="card-img-top"
+          alt="image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ res.title }}{{ res.name }}</h5>
+          <p class="pStyle">{{res.overview}}
+          </p>
+          <p>just for init loc</p>
+        </div>
+      </div>
+  </div>
+</div>

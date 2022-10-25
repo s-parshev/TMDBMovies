@@ -1,0 +1,24 @@
+/* p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+} */
+
+
+/* p {
+  overflow: hidden;
+  max-height: 220px;
+  height:220px;
+  overflow: hidden;
+  white-space:calc(max-height);
+  text-overflow: ellipsis;
+} */
+
+.pStyle{
+  font-size: 1.2rem;
+  width: 250px;
+  height:80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

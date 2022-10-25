@@ -1,0 +1,162 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()" #f="ngForm" class="bg-dark rounded p-1">
+    <div class="d-flex col">
+      <input
+        class="form-control mr-sm-2"
+        placeholder="Search phrase"
+        aria-label="Search"
+        ngModel
+        name="searchPhrase"
+      />
+    </div>
+    <div class="mt-2">
+      <div class="col">
+        <div class="d-flex mt-3">
+          <div class="input-group justify-content-start">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input
+                  type="radio"
+                  name="filter"
+                  id="act"
+                  value="actore"
+                  ngModel
+                />Actore
+              </div>
+            </div>
+          </div>
+          <div class="input-group justify-content-end">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input
+                  type="radio"
+                  name="filter"
+                  id="cat"
+                  value="year"
+                  ngModel
+                />
+                Year
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-2 justify-content-center;">
+          <div class="col-6">
+            <select
+              class="form-select mt-2"
+              aria-label="Default select example"
+              ngModel
+              name="searchSelect"
+              [disabled]="mediaTypeResctriction"
+            >
+              <option value="movie">movie</option>
+              <option value="tv">tv show</option>
+            </select>
+          </div>
+          <div class="d-flex mt-5">
+            <button
+              type="submit"
+              class="btn btn-success border border-white border-1 m-2"
+              type="submit"
+            >
+              Search
+            </button>
+            <div class="col-2">
+              <button
+                type="submit"
+                class="btn btn-success border border-white border-1 m-2"
+                type="button"
+                (click)="resetForm()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="conatainer d-flex flex-wrap">
+    <div
+      class="spinner-border text-light customPosition"
+      role="status"
+      *ngIf="loading"
+    ></div>
+    <div *ngFor="let media of resultArray" style="margin: 15px">
+      <div *ngIf="media.backdrop_path">
+        <div class="card bg-dark" style="width: 18rem; height: 32rem">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w185/' + media.backdrop_path"
+            class="card-img-top"
+            [alt]="media.name"
+          />
+          <div class="card-body bg-dark m-2">
+            <h5 class="card-title" style="max-height: 3rem; height: 3rem">
+              <p>{{ media.release_date }}{{ media.first_air_date }}</p>
+            </h5>
+            <div>{{ media.title }}{{ media.name }}</div>
+            <p
+              class="card-text mt-2 pStyle"
+              style="max-height: 10rem; height: 9rem"
+            >
+              {{ media.overview }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="conatainer d-flex flex-wrap">
+    <div
+      class="spinner-border text-light customPosition"
+      role="status"
+      *ngIf="loading"
+    ></div>
+    <div *ngFor="let person of persons" style="margin: 15px">
+      <div *ngIf="person.profile_path">
+        <div class="card bg-dark" style="width: 18rem; height: 32rem">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w185/' + person.profile_path"
+            class="card-img-top"
+            [alt]="person.title"
+          />
+          <div class="card-body bg-dark m-2">
+            <h5 class="card-title">
+              <p>{{ person.name }}</p>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container d-flex flex-wrap">
+    <div *ngFor="let person of persons" style="margin: 15px">
+      <div *ngIf="person.profile_path">
+        <div class="card" style="width: 18rem">
+          <img
+            [src]="'https://image.tmdb.org/t/p/w200/' + person.profile_path"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body bg-dark">
+            <h5 class="card-title bg-dark">{{ person.name }}</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="errorMessage"
+    class="alert bg-danger mt-2 d-flex justify-content-between"
+  >
+    <div>Аt least search phrase field must be completed</div>
+    <button type="button" class="btn btn-danger" (click)="resetErrorMSG()">
+      0K
+    </button>
+  </div>
+</div>

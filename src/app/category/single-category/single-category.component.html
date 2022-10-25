@@ -1,0 +1,30 @@
+<div class="container" *ngFor="let g of genre; let i = index">
+  <div
+    class="p-2"
+    style="
+      float: left;
+    "
+  >
+    <div
+      class="card"
+      style="
+        background-color: transparent;
+        width: 18rem;
+        box-shadow: 1px 1px 2px 2px darkcyan;
+        max-height: 50rem;
+        height: 30rem;
+      "
+      (click)="loadCurrentMedia(g)"
+    >
+      <div class="card-body bg-dark">
+        <h5 style="min-height: 50px;">{{ g.name }}{{ g.title }}</h5>
+        <img
+          [src]="'https://image.tmdb.org/t/p/w500/' + g?.backdrop_path"
+          style="max-width: 16rem; box-shadow: 1px 1px 2px 2px darkcyan"
+          alt=" _image"
+        />
+        <p class="card-text pStyle" style="text-align: justify ">{{ g.overview }}...</p>
+      </div>
+    </div>
+  </div>
+</div>

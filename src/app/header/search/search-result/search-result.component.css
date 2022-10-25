@@ -1,0 +1,33 @@
+.displayStayle{
+  display:flex;
+  flex-direction: row;
+  float: left;
+}
+.pStyle{
+  font-size: 1.2rem;
+  width: 250px;
+  height:80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-title{
+  min-height:60px;
+  height:60px;
+}
+.card{
+  box-shadow: 1px 1px 3px 3px rgb(27, 227, 227);
+}
+.posStyle{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+li>a{
+  margin:20px;
+  cursor: pointer;
+}
+.pagination{
+  align-items: baseline;
+  color:black;
+}

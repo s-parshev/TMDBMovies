@@ -1,0 +1,50 @@
+<div class="container posStyle">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li>
+        <a (click)="loadPage('prev')">Previus</a>
+      </li>
+      {{
+        currentPage
+      }}
+      <li>
+        <a (click)="loadPage('next')"> Next</a>
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <div
+      style="float: left; margin: 10px; max-height: 400px; height: 400px"
+      *ngFor="let media of shows"
+    >
+      <div
+        class="card"
+        style="width: 18rem; "
+        (click)="loadCurrentMovie(media)"
+      >
+        <img
+          [src]="'https://image.tmdb.org/t/p/w200/' + media.backdrop_path"
+          class="card-img-top"
+          alt="image"
+        />
+        <div class="card-body bg bg-dark border border-darkcyan rounded">
+          <h5 class="card-title">{{ media.title }}{{ media.name }}</h5>
+          <p class="pStyle">{{ media.overview }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li>
+        <a (click)="loadPage('prev')">Previus</a>
+      </li>
+      {{
+        currentPage
+      }}
+      <li>
+        <a (click)="loadPage('next')"> Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>

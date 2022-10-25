@@ -1,0 +1,15 @@
+
+.pStyle{
+  font-size: 1.2rem;
+  width: 250px;
+  height:80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.customPosition{
+  width:55px;
+  height:55px;
+  position:absolute;
+  top:65%;
+  left:50%;
+}
